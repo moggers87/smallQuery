@@ -4,7 +4,7 @@
   "description": "Like jQuery, but smaller.",
   "main": "dist/smallquery.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/moggers87/smallQuery/issues"
   },
-  "homepage": "https://github.com/moggers87/smallQuery#readme"
+  "homepage": "https://github.com/moggers87/smallQuery#readme",
+  "devDependencies": {
+    "jasmine": "^3.3.1"
+  }
 }
