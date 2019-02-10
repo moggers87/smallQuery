@@ -1,0 +1,19 @@
+{
+  "name": "smallquery",
+  "version": "0.0.1",
+  "description": "Like jQuery, but smaller.",
+  "main": "dist/smallquery.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moggers87/smallQuery.git"
+  },
+  "author": "Matt Molyneaux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moggers87/smallQuery/issues"
+  },
+  "homepage": "https://github.com/moggers87/smallQuery#readme"
+}
