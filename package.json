@@ -2,7 +2,7 @@
   "name": "smallquery",
   "version": "0.0.1",
   "description": "Like jQuery, but smaller.",
-  "main": "dist/smallquery.js",
+  "main": "smallquery.js",
   "scripts": {
     "test": "jasmine"
   },
