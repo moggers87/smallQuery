@@ -1,6 +1,10 @@
 module.exports = function(config) {
     config.set({
+        logLevel: config.LOG_INFO,
         frameworks: ['jasmine'],
-        files: ["*.js"]
+        files: [
+            "smallquery.js",
+            "spec/**/*spec.js"
+        ]
     })
 }
