@@ -4,7 +4,8 @@
   "description": "Like jQuery, but smaller.",
   "main": "smallquery.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "lint": "jshint smallquery.js spec/"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "jasmine": "^3.3.1",
     "jasmine-core": "^3.3.0",
+    "jshint": "^2.10.1",
     "karma": "^4.0.0",
     "karma-jasmine": "^2.0.1"
   },
