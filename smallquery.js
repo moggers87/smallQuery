@@ -15,11 +15,11 @@ smallQuery.fn = smallQuery.prototype;  // jQuery compatibility
 window.$ = window.smallQuery = smallQuery;
 
 function domReady(fn) {
-    return document/readyState === "complete" ? fn.call(document) : domReadyArray.push(fn);
+    return document.readyState === "complete" ? fn.call(document) : domReadyArray.push(fn);
 }
 
 document.addEventListener("DOMContentLoaded", function onDomReady() {
-    document.removeEventListener("DOMContentLoaded", onDomRead);
+    document.removeEventListener("DOMContentLoaded", onDomReady);
     while (domReadyArray.length) {
         domReadyArray.shift().call(document);
     }
@@ -36,7 +36,7 @@ smallQuery.prototype.init = function(selector) {
         } else {
             this.nodes = Array.prototype.slice.call(document.querySelectorAll(selector));
         }
-    } else if (selector instnaceof Element) {
+    } else if (selector instanceof Element) {
         this.nodes = [selector];
     } else if (typeof selector === "function") {
         return domReady(selector);
