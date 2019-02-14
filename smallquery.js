@@ -18,8 +18,7 @@ function domReady(fn) {
     return document.readyState === "complete" ? fn.call(document) : domReadyArray.push(fn);
 }
 
-document.addEventListener("DOMContentLoaded", function onDomReady() {
-    document.removeEventListener("DOMContentLoaded", onDomReady);
+document.addEventListener("DOMContentLoaded", function() {
     while (domReadyArray.length) {
         domReadyArray.shift().call(document);
     }
@@ -28,11 +27,9 @@ document.addEventListener("DOMContentLoaded", function onDomReady() {
 smallQuery.prototype.init = function(selector) {
     if (!selector) {
         return this;
-    }
-
-    if (typeof selector === "string") {
+    } else if (typeof selector === "string") {
         if (selector[0] === "<" && selector[selector.length - 1] === ">" && selector.length >= 3) {
-            this.nodes = [this.parseHTML(selector)];
+            this.nodes = Array.prototype.slice.call(smallQuery.parseHTML(selector).childNodes);
         } else {
             this.nodes = Array.prototype.slice.call(document.querySelectorAll(selector));
         }
@@ -42,15 +39,17 @@ smallQuery.prototype.init = function(selector) {
         return domReady(selector);
     }
 
-    if (this.nodes.length) {
+    if (this.nodes.length !== undefined) {
         this.length = this.nodes.length;
         for (var i = 0; i < this.nodes.length; i++) {
             this[i] = this.nodes[i];
         }
     }
+
+    return this;
 };
 
-smallQuery.prototype.parseHTML = function(html) {
+smallQuery.parseHTML = function(html) {
    return document.createRange().createContextualFragment(html);
 };
 })(window);
