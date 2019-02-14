@@ -1,0 +1,22 @@
+language: node_js
+sudo: false
+node_js:
+    - node
+
+matrix:
+    include:
+      - env:
+          - NPM_SCRIPT=test:firefox
+          - MOZ_HEADLESS=1
+        addons:
+            firefox: latest
+      - env:
+          - NPM_SCRIPT=test:firefox
+          - MOZ_HEADLESS=1
+        addons:
+            firefox: latest-esr
+      - env: NPM_SCRIPT=test:chrome
+        addons:
+            chrome: stable
+
+script: npm run $NPM_SCRIPT
