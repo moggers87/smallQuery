@@ -4,8 +4,11 @@
   "description": "Like jQuery, but smaller.",
   "main": "smallquery.js",
   "scripts": {
-    "test": "karma start",
-    "lint": "jshint smallquery.js spec/"
+    "lint": "jshint smallquery.js spec/",
+    "test:firefox": "karma start --browsers=Firefox --single-run",
+    "test:chrome": "karma start --browsers=Chrome --single-run",
+    "test:firefox-debug": "karma start --browsers=Firefox",
+    "test:chrome-debug": "karma start --browsers=Chrome"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,8 @@
     "jasmine-core": "^3.3.0",
     "jshint": "^2.10.1",
     "karma": "^4.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.1.0",
     "karma-jasmine": "^2.0.1"
   },
   "dependencies": {}
