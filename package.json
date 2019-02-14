@@ -6,9 +6,9 @@
   "scripts": {
     "lint": "jshint smallquery.js spec/",
     "test:firefox": "karma start --browsers=Firefox --single-run",
-    "test:chrome": "karma start --browsers=Chrome --single-run",
+    "test:chrome": "karma start --browsers=ChromeMaybeHeadless --single-run",
     "test:firefox-debug": "karma start --browsers=Firefox",
-    "test:chrome-debug": "karma start --browsers=Chrome"
+    "test:chrome-debug": "karma start --browsers=ChromeMaybeHeadless"
   },
   "repository": {
     "type": "git",
