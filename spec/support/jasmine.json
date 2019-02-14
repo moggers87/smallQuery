@@ -3,6 +3,7 @@
   "spec_files": [
     "**/*[sS]pec.js"
   ],
+  "src_files": ["smallquery.js"],
   "stopSpecOnExpectationFailure": false,
   "random": true
 }
