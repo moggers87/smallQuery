@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 smallQuery.prototype.init = function(selector) {
+    this.nodes = [];
+
     if (!selector) {
         return this;
     } else if (typeof selector === "string") {
@@ -39,13 +41,9 @@ smallQuery.prototype.init = function(selector) {
         return domReady(selector);
     }
 
-    if (this.nodes.length !== undefined) {
-        this.length = this.nodes.length;
-        for (var i = 0; i < this.nodes.length; i++) {
-            this[i] = this.nodes[i];
-        }
-    } else {
-        this.nodes = [];
+    this.length = this.nodes.length;
+    for (var i = 0; i < this.nodes.length; i++) {
+        this[i] = this.nodes[i];
     }
 };
 
