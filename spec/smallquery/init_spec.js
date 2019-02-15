@@ -84,4 +84,12 @@ describe("smallQuery", function() {
         }));
         expect(spyspy).toHaveBeenCalled();
     });
+
+    it("should be fine with multiple instances", function() {
+        var $one = $("<p>hello</p>");
+        var $two = $("<div>bye</div><div>bob</div>");
+
+        expect($one).not.toBe($two);
+        expect($one.length).not.toBe($two.length);
+    });
 });
