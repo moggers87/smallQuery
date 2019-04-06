@@ -8,15 +8,18 @@ matrix:
       - env:
           - NPM_SCRIPT=test:firefox
           - MOZ_HEADLESS=1
+          - FIREFOX=latest  # FIREFOX does nothing except display which version we're using on the travis WebUI
         addons:
             firefox: latest
       - env:
           - NPM_SCRIPT=test:firefox
           - MOZ_HEADLESS=1
+          - FIREFOX=esr  # FIREFOX does nothing except display which version we're using on the travis WebUI
         addons:
             firefox: latest-esr
       - env: NPM_SCRIPT=test:chrome
         addons:
             chrome: stable
+      - env: NPM_SCRIPT=lint
 
 script: npm run $NPM_SCRIPT
