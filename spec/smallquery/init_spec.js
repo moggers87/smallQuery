@@ -18,7 +18,7 @@ describe("smallQuery", function() {
         var obj = $();
 
         expect(obj).toBeDefined();
-        expect(obj.nodes).toEqual([]);
+        expect(obj.length).toBe(0);
     });
 
     it("should have a length after selecting elements", function() {
