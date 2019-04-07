@@ -20,6 +20,12 @@
     "url": "https://github.com/moggers87/smallQuery/issues"
   },
   "homepage": "https://github.com/moggers87/smallQuery#readme",
+  "files": [
+      "smallquery.js",
+      "README.md",
+      "LICENSE",
+      "CHANGELOG.md"
+  ],
   "devDependencies": {
     "jasmine": "^3.3.1",
     "jasmine-core": "^3.3.0",
