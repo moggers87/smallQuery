@@ -1,0 +1,10 @@
+{
+    "strict": "global",
+    "browser": true,
+    "jasmine": true,
+    "globals": {
+        "$": false,
+        "smallQuery": false
+    },
+    "esversion": 6
+}

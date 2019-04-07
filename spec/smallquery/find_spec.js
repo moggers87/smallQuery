@@ -1,3 +1,5 @@
+"use strict";
+
 describe("the find function", function() {
     var $obj;
 

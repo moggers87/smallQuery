@@ -1,3 +1,5 @@
+"use strict";
+
 describe("the siblings function", function() {
     var $obj;
 

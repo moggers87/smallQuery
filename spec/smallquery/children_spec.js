@@ -1,3 +1,5 @@
+"use strict";
+
 describe("the children function", function() {
     var $obj;
 

@@ -1,3 +1,5 @@
+"use strict";
+
 describe("the data API", function() {
     var $obj;
 

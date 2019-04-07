@@ -1,3 +1,5 @@
+"use strict";
+
 describe("the each method", function() {
     it("should not run functions on an empty object", function() {
         var spyspy = jasmine.createSpy("spyspy");

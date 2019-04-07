@@ -1,3 +1,5 @@
+"use strict";
+
 describe("smallQuery", function() {
     afterEach(function() {
         // cleanup any html elements we created

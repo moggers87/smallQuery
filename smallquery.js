@@ -64,6 +64,7 @@ smallQuery.parseHTML = function(html) {
 })(window);
 
 (function(window){
+"use strict";
 /*
  * Data API
  *
@@ -137,6 +138,7 @@ function setData(el, key, value) {
 })(window);
 
 (function(window){
+"use strict";
 /*
  * Find API
  *
