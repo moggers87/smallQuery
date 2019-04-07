@@ -51,11 +51,12 @@ terms of API, so keep that in mind before opening an issue.
 
 Some things I won't consider:
 
-- Utility functions that aren't used by smallQuery itself, e.g. `jQuery.grep()`
+- Utility functions that aren't used by smallQuery itself, e.g. implementing `jQuery.grep()`
 - Deprecated APIs, e.g. `.andSelf()`
 - Custom selectors
 - Effects and animation (do it in CSS or don't do it at all)
 - Per event type functions, e.g. `.click()`
+- Support for Browsers that are no longer recieving updates, e.g. Internet Explorer 8
 
 ### License?
 
