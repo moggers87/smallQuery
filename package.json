@@ -20,6 +20,7 @@
     "url": "https://github.com/moggers87/smallQuery/issues"
   },
   "homepage": "https://github.com/moggers87/smallQuery#readme",
+  "keywords": ["browser", "library", "dom"],
   "files": [
       "smallquery.js",
       "README.md",
