@@ -242,3 +242,40 @@ smallQuery.prototype.parents = function(selector) {
     return matches;
 };
 })(window);
+
+(function(window){
+"use strict";
+/*
+ * Append/Prepend API
+ *
+ * The append and prepend methods are defined here. Self explanatory.
+ *
+ */
+smallQuery.prototype.prepend = function(entity) {
+    this.each(function(el) {
+        if (entity instanceof Element) {
+            el.prepend(entity.cloneNode(true));
+        } else {
+            for (var i = entity.length - 1; i >= 0; i--) {
+                el.prepend(entity[i].cloneNode(true));
+            }
+        }
+    });
+
+    return this;
+};
+
+smallQuery.prototype.append = function(entity) {
+    this.each(function(el) {
+        if (entity instanceof Element) {
+            el.append(entity.cloneNode(true));
+        } else {
+            for (var i = 0; i < entity.length; i++) {
+                el.append(entity[i].cloneNode(true));
+            }
+        }
+    });
+
+    return this;
+};
+})(window);
