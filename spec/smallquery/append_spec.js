@@ -49,6 +49,24 @@ describe("the append function", function() {
         expect(children[1].textContent).toEqual("Hi");
         expect(children[2].textContent).toEqual("Bye");
     });
+
+    it("should not clone if only one parent is selected", function() {
+        var $li = $("<li>Bye</li>");
+        $obj.append($li);
+        var newLi = $obj[0].children[2];
+        $li[0].testMe = "test!";
+        expect(newLi.testMe).toEqual("test!");
+    });
+
+    it("should not clone the last element if there is more than one parent", function() {
+        var $b = $("<b>Bold</b>");
+        var $children = $obj.children();
+        $children.append($b);
+        $b[0].testMe = "test!";
+        expect($children[0].children[0].testMe).toBeUndefined();
+        expect($children[1].children[0].testMe).toEqual("test!");
+
+    });
 });
 
 describe("the prepend function", function() {
@@ -101,4 +119,21 @@ describe("the prepend function", function() {
         expect(children[2].textContent).toEqual("Hi");
     });
 
+    it("should not clone if only one parent is selected", function() {
+        var $li = $("<li>Bye</li>");
+        $obj.prepend($li);
+        var newLi = $obj[0].children[0];
+        $li[0].testMe = "test!";
+        expect(newLi.testMe).toEqual("test!");
+    });
+
+    it("should not clone the last element if there is more than one parent", function() {
+        var $b = $("<b>Bold</b>");
+        var $children = $obj.children();
+        $children.prepend($b);
+        $b[0].testMe = "test!";
+        expect($children[0].children[0].testMe).toBeUndefined();
+        expect($children[1].children[0].testMe).toEqual("test!");
+
+    });
 });
