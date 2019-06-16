@@ -293,3 +293,85 @@ smallQuery.prototype.append = function(arrayOrElement) {
     return this;
 };
 })(window);
+
+(function(window){
+"use strict";
+/*
+ * CSS API
+ *
+ * CSS manipulation
+ */
+
+smallQuery.prototype.css = function(key, value) {
+    if (value === undefined) {
+        var currentThis = this;
+
+        if (Array.isArray(key)) {
+            var styleObj = {};
+
+            key.forEach(function(style) {
+                styleObj[style] = getValue(currentThis[0], style);
+            });
+
+            return styleObj;
+        } else if (typeof key === "object" && key.constructor === Object) {
+            Object.entries(key).forEach(function(pair) {
+                currentThis.each(function(el) {
+                    el.style[pair[0]] = pair[1];
+                });
+            });
+        } else {
+            return getValue(this[0], key);
+        }
+    } else {
+        this.each(function(el) {
+            el.style[key] = value;
+        });
+    }
+};
+
+smallQuery.prototype.addClass = function(klass) {
+    this.each(function(el) {
+        el.classList.add(klass);
+    });
+
+    return this;
+};
+
+smallQuery.prototype.removeClass = function(klass) {
+    this.each(function(el) {
+        el.classList.remove(klass);
+    });
+
+    return this;
+};
+
+smallQuery.prototype.toggleClass = function(klass) {
+    this.each(function(el) {
+        el.classList.toggle(klass);
+    });
+
+    return this;
+};
+
+smallQuery.prototype.hasClass = function(klass) {
+    var has = false;
+
+    this.each(function(el) {
+        if (el.classList.contains(klass)) {
+            has = true;
+            return false;  // make each bail out earlier
+        }
+    });
+
+    return has;
+};
+
+/*
+ * Internal functions
+ */
+
+function getValue(el, key) {
+    return el.style[key] || window.getComputedStyle(el)[key] || undefined;
+}
+})(window);
