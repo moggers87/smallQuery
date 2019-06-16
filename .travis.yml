@@ -22,4 +22,7 @@ matrix:
             chrome: stable
       - env: NPM_SCRIPT=lint
 
+
+before_script: npm install codecov
 script: npm run $NPM_SCRIPT
+after_script: npx codecov
