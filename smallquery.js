@@ -251,29 +251,43 @@ smallQuery.prototype.parents = function(selector) {
  * The append and prepend methods are defined here. Self explanatory.
  *
  */
-smallQuery.prototype.prepend = function(entity) {
-    this.each(function(el) {
-        if (entity instanceof Element) {
-            el.prepend(entity.cloneNode(true));
-        } else {
-            for (var i = entity.length - 1; i >= 0; i--) {
-                el.prepend(entity[i].cloneNode(true));
-            }
+
+function prepareElements(arrayOrElement, clone) {
+    var elements = [];
+    if (arrayOrElement instanceof Element) {
+        elements.push(arrayOrElement);
+    } else {
+        for (var i = 0; i < arrayOrElement.length; i++) {
+            elements.push(arrayOrElement[i]);
         }
+    }
+
+    if (clone) {
+        for (var j = 0; j < elements.length; j++) {
+            elements[j] = elements[j].cloneNode(true);
+        }
+    }
+
+    return elements;
+}
+
+smallQuery.prototype.prepend = function(arrayOrElement) {
+    var targetCount = this.length;
+
+    this.each(function(el, index) {
+        var clone = targetCount && index + 1 < targetCount;
+        Element.prototype.prepend.apply(el, prepareElements(arrayOrElement, clone));
     });
 
     return this;
 };
 
-smallQuery.prototype.append = function(entity) {
-    this.each(function(el) {
-        if (entity instanceof Element) {
-            el.append(entity.cloneNode(true));
-        } else {
-            for (var i = 0; i < entity.length; i++) {
-                el.append(entity[i].cloneNode(true));
-            }
-        }
+smallQuery.prototype.append = function(arrayOrElement) {
+    var targetCount = this.length;
+
+    this.each(function(el, index) {
+        var clone = targetCount && index + 1 < targetCount;
+        Element.prototype.append.apply(el, prepareElements(arrayOrElement, clone));
     });
 
     return this;
