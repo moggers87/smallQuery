@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/moggers87/smallQuery.svg?branch=master)](https://travis-ci.org/moggers87/smallQuery)
+[![Codecov](https://img.shields.io/codecov/c/github/moggers87/smallQuery.svg)](https://codecov.io/gh/moggers87/smallQuery)
 
 ## smallQuery
 
