@@ -41,7 +41,9 @@ So far:
 
 - Selecting and create HTML elements
 - Basic tree traversal via `find`, `children`, `siblings`, `parent` and `parents`
+- Basic tree manipulation via `append`, `prepend`, `before`, and `after`
 - The Data API
+- The CSS API
 
 ### What will be implemented?
 
