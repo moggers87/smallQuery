@@ -247,9 +247,9 @@ smallQuery.prototype.parents = function(selector) {
 (function(window){
 "use strict";
 /*
- * Append/Prepend API
+ * Append/Prepend/Before/After API
  *
- * The append and prepend methods are defined here. Self explanatory.
+ * The append, prepend, before, after methods are defined here. Self explanatory.
  *
  */
 
@@ -289,6 +289,28 @@ smallQuery.prototype.append = function(arrayOrElement) {
     this.each(function(index) {
         var clone = targetCount && index + 1 < targetCount;
         Element.prototype.append.apply(this, prepareElements(arrayOrElement, clone));
+    });
+
+    return this;
+};
+
+smallQuery.prototype.before = function(arrayOrElement) {
+    var targetCount = this.length;
+
+    this.each(function(index) {
+        var clone = targetCount && index + 1 < targetCount;
+        Element.prototype.before.apply(this, prepareElements(arrayOrElement, clone));
+    });
+
+    return this;
+};
+
+smallQuery.prototype.after = function(arrayOrElement) {
+    var targetCount = this.length;
+
+    this.each(function(index) {
+        var clone = targetCount && index + 1 < targetCount;
+        Element.prototype.after.apply(this, prepareElements(arrayOrElement, clone));
     });
 
     return this;
