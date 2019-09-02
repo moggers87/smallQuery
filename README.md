@@ -21,8 +21,8 @@ resulting CSS file a lot smaller as I could remove more components (utility
 classes are split up so I could import only the ones I actually needed) and
 Turret does not support as many browsers - it can in fact be configured for
 different browsers at build time. All in all, this leads to a ~50% reduction in
-the minified CSS file. That's quite significant when most of a page down is CSS
-and JS assets.
+the minified CSS file. That's quite significant when most of a page download is
+CSS and JS assets.
 
 jQuery is much the same: there's a lot of support built in for older browsers
 and there's a lot of stuff I don't use. So I'd like to create my own
