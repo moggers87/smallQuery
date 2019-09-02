@@ -53,5 +53,10 @@ describe("the data API", function() {
             $obj.data({test: "yearwounds", other: "goodbye horses"});
             expect($obj.data()).toEqual({test: "yearwounds", other: "goodbye horses"});
         });
+
+        it("should not return multiple values if multiple tags are selected with the same keys", function() {
+            $obj = $("<div data-test='superego royal jelly'>Hello</div><div data-test='bluh!' data-value='test'>Bye</div>");
+            expect($obj.data()).toEqual({test: "superego royal jelly", value: "test"});
+        });
     });
 });
