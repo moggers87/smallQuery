@@ -104,6 +104,12 @@ smallQuery.prototype.data = function(key, value) {
     }
 };
 
+smallQuery.prototype.removeData = function(key) {
+    for (var i = 0; i < arguments.length; i++) {
+        delData(this[0], arguments[i]);
+    }
+};
+
 // Data API helpers
 
 var privDataMarker = "smallQuery" + Math.random();
@@ -134,6 +140,10 @@ function setData(el, key, value) {
     }
 
     el[privDataMarker][key] = value;
+}
+
+function delData(el, key) {
+    delete el[privDataMarker][key];
 }
 })(window);
 
