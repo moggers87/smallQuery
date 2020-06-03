@@ -59,4 +59,31 @@ describe("the data API", function() {
             expect($obj.data()).toEqual({test: "superego royal jelly", value: "test"});
         });
     });
+
+    describe("when removing data", function() {
+        beforeEach(function() {
+            $obj.data("test", "blackdresses");
+            $obj.data("rook", "nomie");
+        });
+
+        it("should remove a data entry completely", function() {
+            $obj.removeData("rook");
+            expect($obj.data()).toEqual({test: "blackdresses"});
+        });
+
+        it("should not remove HTML defined datas", function() {
+            $obj.removeData("test");
+            expect($obj.data()).toEqual({test: "superego royal jelly", rook: "nomie"});
+        });
+
+        it("should do all this with multiple keys", function() {
+            $obj.removeData("test", "rook");
+            expect($obj.data()).toEqual({test: "superego royal jelly"});
+        });
+
+        it("should not error when the key does not exist", function() {
+            $obj.removeData("badKey");
+            expect($obj.data()).toEqual({test: "blackdresses", rook: "nomie"});
+        });
+    });
 });
