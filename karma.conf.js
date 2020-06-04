@@ -21,11 +21,11 @@ module.exports = function(config) {
             ChromeMaybeHeadless: chromeOpts
         },
         files: [
-            "smallquery.js",
-            "spec/**/*spec.js"
+            {pattern: "spec/**/*spec.js", type: "module"},
+            {pattern: "src/*.js", type: "module"}
         ],
         reporters: ['progress', 'coverage'],
-        preprocessors: {"smallquery.js": ["coverage"]},
+        preprocessors: {"src/*.js": ["coverage"]},
         coverageReporter: {
             reporters: [
                 {

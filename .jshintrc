@@ -1,4 +1,5 @@
 {
-    "strict": "web",
-    "esversion": 5
+    "esversion": 6,
+    "globals": { "window": true },
+    "strict": "implied"
 }
