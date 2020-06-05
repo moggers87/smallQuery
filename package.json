@@ -5,6 +5,7 @@
   "main": "src/smallquery.js",
   "scripts": {
     "lint": "jshint src/ spec/",
+    "test:debug": "karma start --no-browsers",
     "test:firefox": "karma start --browsers=Firefox --single-run",
     "test:chrome": "karma start --browsers=ChromeMaybeHeadless --single-run",
     "test:firefox-debug": "karma start --browsers=Firefox",
