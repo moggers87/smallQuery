@@ -1,4 +1,4 @@
-"use strict";
+import $ from "../../src/smallquery.js";
 
 describe("the find function", function() {
     var $obj;

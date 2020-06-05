@@ -1,4 +1,4 @@
-"use strict";
+import $ from "../../src/smallquery.js";
 
 describe("the each method", function() {
     it("should not run functions on an empty object", function() {

@@ -2,9 +2,10 @@
   "name": "smallquery",
   "version": "0.0.3",
   "description": "Like jQuery, but smaller.",
-  "main": "smallquery.js",
+  "main": "src/smallquery.js",
   "scripts": {
-    "lint": "jshint smallquery.js spec/",
+    "lint": "jshint src/ spec/",
+    "test:debug": "karma start --no-browsers",
     "test:firefox": "karma start --browsers=Firefox --single-run",
     "test:chrome": "karma start --browsers=ChromeMaybeHeadless --single-run",
     "test:firefox-debug": "karma start --browsers=Firefox",
@@ -26,7 +27,7 @@
     "dom"
   ],
   "files": [
-    "smallquery.js",
+    "src/*.js",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"

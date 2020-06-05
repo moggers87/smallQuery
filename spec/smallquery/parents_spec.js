@@ -1,4 +1,4 @@
-"use strict";
+import $ from "../../src/smallquery.js";
 
 describe("the parents function", function() {
     var $obj;

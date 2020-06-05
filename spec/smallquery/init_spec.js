@@ -1,4 +1,4 @@
-"use strict";
+import $ from "../../src/smallquery.js";
 
 describe("smallQuery", function() {
     afterEach(function() {
