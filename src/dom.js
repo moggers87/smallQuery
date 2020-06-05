@@ -63,4 +63,41 @@ smallQuery.prototype.after = function(arrayOrElement) {
     return this;
 };
 
+smallQuery.prototype.empty = function() {
+    this.each(function(index) {
+        while (this.firstChild) {
+            this.firstChild.remove();
+        }
+    });
+
+    return this;
+};
+
+function removeElements(sqObj, selector, removeData) {
+    var selected;
+
+    if (selector) {
+        selected = sqObj.find(selector);
+    } else {
+        selected = sqObj;
+    }
+
+    selected.each(function(index) {
+        if (removeData) {
+            smallQuery(this).removeData();
+        }
+        this.remove();
+    });
+
+    return selected;
+}
+
+smallQuery.prototype.remove = function(selector) {
+    return removeElements(this, selector, true);
+};
+
+smallQuery.prototype.detach = function(selector) {
+    return removeElements(this, selector, false);
+};
+
 export default smallQuery;
