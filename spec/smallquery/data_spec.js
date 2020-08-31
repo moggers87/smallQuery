@@ -85,5 +85,10 @@ describe("the data API", function() {
             $obj.removeData("badKey");
             expect($obj.data()).toEqual({test: "blackdresses", rook: "nomie"});
         });
+
+        it("should remove everything not defined in HTML if no keys are specified", function() {
+            $obj.removeData();
+            expect($obj.data()).toEqual({test: "superego royal jelly"});
+        });
     });
 });

@@ -30,9 +30,19 @@ smallQuery.prototype.data = function(key, value) {
     }
 };
 
-smallQuery.prototype.removeData = function(key) {
-    for (var i = 0; i < arguments.length; i++) {
-        delData(this[0], arguments[i]);
+smallQuery.prototype.removeData = function() {
+    var keys;
+    if (!(privDataMarker in this[0])) {
+        // if there's no marker, then there's nothing to do
+        return;
+    }
+    if (arguments.length === 0) {
+        keys = Object.keys(this[0][privDataMarker]);
+    } else {
+        keys = arguments;
+    }
+    for (var i = 0; i < keys.length; i++) {
+        delData(this[0], keys[i]);
     }
 };
 
