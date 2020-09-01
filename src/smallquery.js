@@ -6,5 +6,6 @@ import "./dom.js";
 import "./find.js";
 import "./css.js";
 import "./data.js";
+import "./events.js";
 
 export default smallQuery;
