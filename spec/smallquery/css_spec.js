@@ -54,6 +54,11 @@ describe("the addClass() function", function() {
         expect(Array.from($obj[0].classList)).toEqual(["blob"]);
         expect(Array.from($obj[0].children[0].classList)).toEqual([]);
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.addClass("blob2");
+        expect(result).toBe($obj);
+    });
 });
 
 describe("the removeClass() function", function() {
@@ -74,6 +79,11 @@ describe("the removeClass() function", function() {
         expect(Array.from($obj[0].classList)).toEqual(["blob", "cheese"]);
         expect(Array.from($obj[0].children[0].classList)).toEqual(["blob"]);
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.removeClass("blob");
+        expect(result).toBe($obj);
+    });
 });
 
 describe("the toggleClass() function", function() {
@@ -93,7 +103,11 @@ describe("the toggleClass() function", function() {
         $obj.toggleClass("blob");
         expect(Array.from($obj[0].classList)).toEqual(["cheese"]);
         expect(Array.from($obj[0].children[0].classList)).toEqual(["blob"]);
+    });
 
+    it("should return a smallquery object", function() {
+        var result = $obj.toggleClass("blob");
+        expect(result).toBe($obj);
     });
 });
 

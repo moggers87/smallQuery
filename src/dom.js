@@ -22,55 +22,45 @@ function prepareElements(arrayOrElement, clone) {
 smallQuery.prototype.prepend = function(arrayOrElement) {
     var targetCount = this.length;
 
-    this.each(function(index) {
+    return this.each(function(index) {
         var clone = targetCount && index + 1 < targetCount;
         window.Element.prototype.prepend.apply(this, prepareElements(arrayOrElement, clone));
     });
-
-    return this;
 };
 
 smallQuery.prototype.append = function(arrayOrElement) {
     var targetCount = this.length;
 
-    this.each(function(index) {
+    return this.each(function(index) {
         var clone = targetCount && index + 1 < targetCount;
         window.Element.prototype.append.apply(this, prepareElements(arrayOrElement, clone));
     });
-
-    return this;
 };
 
 smallQuery.prototype.before = function(arrayOrElement) {
     var targetCount = this.length;
 
-    this.each(function(index) {
+    return this.each(function(index) {
         var clone = targetCount && index + 1 < targetCount;
         window.Element.prototype.before.apply(this, prepareElements(arrayOrElement, clone));
     });
-
-    return this;
 };
 
 smallQuery.prototype.after = function(arrayOrElement) {
     var targetCount = this.length;
 
-    this.each(function(index) {
+    return this.each(function(index) {
         var clone = targetCount && index + 1 < targetCount;
         window.Element.prototype.after.apply(this, prepareElements(arrayOrElement, clone));
     });
-
-    return this;
 };
 
 smallQuery.prototype.empty = function() {
-    this.each(function(index) {
+    return this.each(function(index) {
         while (this.firstChild) {
             this.firstChild.remove();
         }
     });
-
-    return this;
 };
 
 function removeElements(sqObj, selector, removeData) {
