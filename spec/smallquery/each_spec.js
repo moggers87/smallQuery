@@ -49,4 +49,10 @@ describe("the each method", function() {
         expect(spyspy.calls.allArgs()[0]).toEqual([{"this": $obj[0], "args": [0]}]);
         expect(spyspy.calls.allArgs()[1]).toEqual([{"this": $obj[1], "args": [1]}]);
     });
+
+    it("should return a smallquery object", function() {
+        var $obj = $();
+        var result = $obj.each(function() {});
+        expect(result).toBe($obj);
+    });
 });

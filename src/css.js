@@ -22,34 +22,28 @@ smallQuery.prototype.css = function(key, value) {
             return getValue(this[0], key);
         }
     } else {
-        this.each(function() {
+        return this.each(function() {
             this.style[key] = value;
         });
     }
 };
 
 smallQuery.prototype.addClass = function(klass) {
-    this.each(function() {
+    return this.each(function() {
         this.classList.add(klass);
     });
-
-    return this;
 };
 
 smallQuery.prototype.removeClass = function(klass) {
-    this.each(function() {
+    return this.each(function() {
         this.classList.remove(klass);
     });
-
-    return this;
 };
 
 smallQuery.prototype.toggleClass = function(klass) {
-    this.each(function() {
+    return this.each(function() {
         this.classList.toggle(klass);
     });
-
-    return this;
 };
 
 smallQuery.prototype.hasClass = function(klass) {

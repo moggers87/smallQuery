@@ -67,6 +67,11 @@ describe("the append function", function() {
         expect($children[1].children[0].testMe).toEqual("test!");
 
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.prepend("<b>hello</b>");
+        expect(result).toBe($obj);
+    });
 });
 
 describe("the prepend function", function() {
@@ -136,6 +141,11 @@ describe("the prepend function", function() {
         expect($children[1].children[0].testMe).toEqual("test!");
 
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.prepend("<b>hello</b>");
+        expect(result).toBe($obj);
+    });
 });
 
 describe("the before functon", function() {
@@ -200,6 +210,11 @@ describe("the before functon", function() {
         expect($children[2].testMe).toEqual("test!");
         expect($children[3].testMe).toBeUndefined();
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.before("<b>hello</b>");
+        expect(result).toBe($obj);
+    });
 });
 
 describe("the after functon", function() {
@@ -263,5 +278,10 @@ describe("the after functon", function() {
         expect($children[1].testMe).toBeUndefined();
         expect($children[2].testMe).toBeUndefined();
         expect($children[3].testMe).toEqual("test!");
+    });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.after("<b>hello</b>");
+        expect(result).toBe($obj);
     });
 });

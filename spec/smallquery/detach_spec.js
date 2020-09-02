@@ -23,4 +23,9 @@ describe("the detach API", function() {
         removed = $obj.find("li:first-child").detach();
         expect(removed.data("test")).toEqual("hello");
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.detach();
+        expect(result).toBe($obj);
+    });
 });

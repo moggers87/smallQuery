@@ -52,6 +52,7 @@ smallQuery.prototype.each = function(fn) {
             break;
         }
     }
+    return this;
 };
 
 smallQuery.parseHTML = function(html) {

@@ -23,4 +23,9 @@ describe("the remove API", function() {
         removed = $obj.find("li:first-child").remove();
         expect(removed.data("test")).toEqual(undefined);
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.remove();
+        expect(result).toBe($obj);
+    });
 });

@@ -16,4 +16,9 @@ describe("the empty API", function() {
         $obj.find("li:first-child").empty();
         expect($obj.find("li:first-child")[0].textContent).toEqual("");
     });
+
+    it("should return a smallquery object", function() {
+        var result = $obj.empty();
+        expect(result).toBe($obj);
+    });
 });

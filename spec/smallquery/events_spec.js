@@ -29,4 +29,14 @@ describe("the events API", function() {
         $obj.trigger("click");
         expect(spyspy.calls.count()).toBe(1);
     });
+
+    it("should return a smallquery object when calling trigger", function() {
+        var result = $obj.trigger("click");
+        expect(result).toBe($obj);
+    });
+
+    it("should return a smallquery object when calling on", function() {
+        var result = $obj.on("click", function() {});
+        expect(result).toBe($obj);
+    });
 });
