@@ -53,6 +53,10 @@ module.exports = function(config) {
                     subdir: browserNormaliser
                 }
             ]
+        },
+        jasmineHtmlReporter: {
+            suppressAll: true,
+            suppressFailed: true
         }
     })
 }

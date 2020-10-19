@@ -69,7 +69,7 @@ describe("the append function", function() {
     });
 
     it("should return a smallquery object", function() {
-        var result = $obj.prepend("<b>hello</b>");
+        var result = $obj.append("<b>hello</b>");
         expect(result).toBe($obj);
     });
 });
