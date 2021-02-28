@@ -7,7 +7,7 @@ module.exports = function(config) {
         base: "Chrome"
     }
 
-    if (process.env.TRAVIS) {
+    if (process.env.CI) {
         chromeOpts = {
             base: "ChromeHeadless",
             flags: ["--no-sandbox"]

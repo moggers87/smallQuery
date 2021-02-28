@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '04 08 * * *'
+
+env:
+  MOZ_HEADLESS: 1
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        script: ["test:firefox", "test:chrome", "lint"]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm run ${{ matrix.script }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
