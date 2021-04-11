@@ -23,8 +23,12 @@ window.document.addEventListener("DOMContentLoaded", function() {
 
 smallQuery.prototype.init = function(selector) {
     var nodes = [];
+    this.length = 0;
 
-    if (typeof selector === "string") {
+    if (typeof selector === "function") {
+        domReady(selector);
+        return;
+    } else if (typeof selector === "string") {
         if (selector[0] === "<" && selector[selector.length - 1] === ">" && selector.length >= 3) {
             nodes = Array.prototype.slice.call(smallQuery.parseHTML(selector));
         } else {
@@ -32,8 +36,11 @@ smallQuery.prototype.init = function(selector) {
         }
     } else if (selector instanceof window.Element) {
         nodes = [selector];
-    } else if (typeof selector === "function") {
-        return domReady(selector);
+    } else if (selector && "length" in selector) {
+        // assume it's some sort of iterable
+        nodes = selector;
+    } else {
+        return;
     }
 
     this.length = nodes.length;
