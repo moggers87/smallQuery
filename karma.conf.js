@@ -15,7 +15,7 @@ module.exports = function(config) {
     }
 
     var preprocessors = {};
-    var reporters = ['progress'];
+    var reporters = ['progress', 'kjhtml'];
     if (!process.env.SKIP_COVERAGE) {
         preprocessors["src/*.js"] = ["coverage"];
         reporters.push("coverage");
@@ -33,6 +33,12 @@ module.exports = function(config) {
         ],
         reporters: reporters,
         preprocessors: preprocessors,
+        client: {
+            clearContext: false,
+            jasmine: {
+                failSpecWithNoExpectations: true
+            }
+        },
         coverageReporter: {
             reporters: [
                 {
