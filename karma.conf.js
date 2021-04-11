@@ -14,6 +14,13 @@ module.exports = function(config) {
         };
     }
 
+    var preprocessors = {};
+    var reporters = ['progress'];
+    if (!process.env.SKIP_COVERAGE) {
+        preprocessors["src/*.js"] = ["coverage"];
+        reporters.push("coverage");
+    }
+
     config.set({
         logLevel: config.LOG_INFO,
         frameworks: ['jasmine'],
@@ -24,8 +31,8 @@ module.exports = function(config) {
             {pattern: "spec/**/*spec.js", type: "module"},
             {pattern: "src/*.js", type: "module"}
         ],
-        reporters: ['progress', 'coverage'],
-        preprocessors: {"src/*.js": ["coverage"]},
+        reporters: reporters,
+        preprocessors: preprocessors,
         coverageReporter: {
             reporters: [
                 {
