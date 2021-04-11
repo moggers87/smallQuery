@@ -8,12 +8,18 @@ describe("smallQuery", function() {
         });
     });
 
-    it("should define smallQuery", function() {
+    it("should set smallQuery variable", function() {
         expect(smallQuery).toBeDefined();
+        expect(typeof smallQuery).toBe("function");
+        expect(window.smallQuery).toBeDefined();
+        expect(typeof window.smallQuery).toBe("function");
     });
 
-    it("should define $", function() {
+    it("should set $ variable", function() {
         expect($).toBeDefined();
+        expect(window.$).toBeDefined();
+        expect(typeof $).toBe("function");
+        expect(typeof window.$).toBe("function");
     });
 
     it("should be able to return an empty set if no args are given", function() {

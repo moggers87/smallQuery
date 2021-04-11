@@ -9,6 +9,7 @@ var smallQuery = function(selector) {
 smallQuery.fn = smallQuery.prototype;  // jQuery compatibility
 
 // populate the global context
+var oldDollar = window.$;
 window.$ = window.smallQuery = smallQuery;
 
 function domReady(fn) {
@@ -60,6 +61,12 @@ smallQuery.prototype.each = function(fn) {
         }
     }
     return this;
+};
+
+smallQuery.noConflict = function() {
+    if(window.$ === window.smallQuery) {
+        window.$ = oldDollar;
+    }
 };
 
 smallQuery.parseHTML = function(html) {
