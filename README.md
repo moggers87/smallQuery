@@ -13,37 +13,23 @@ possible we don't reinvent the wheel for a 1% performance boost.
 
 ### Why though?
 
-This is a bit of a story and starts off with CSS.
-
-In late 2018 I became aware of TurretCSS and started using it in a project. As
-compared to my usual go-to CSS framework, I found that I could make the
-resulting CSS file a lot smaller as I could remove more components (utility
-classes are split up so I could import only the ones I actually needed) and
-Turret does not support as many browsers - it can in fact be configured for
-different browsers at build time. All in all, this leads to a ~50% reduction in
-the minified CSS file. That's quite significant when most of a page download is
-CSS and JS assets.
-
-jQuery is much the same: there's a lot of support built in for older browsers
-and there's a lot of stuff I don't use. So I'd like to create my own
-jQuery-esque module and see if I can make something smaller.
-
-#### Yeah, but why though?
-
-Front-end tooling is something I want to be more familiar with, so this seemed
-a like a good project to do that with. I've been able to write JS for a while
-now, but as soon as I had issues with things like Karma configs or Grunt I was
-lost.
+This started as a learning project but has become semi-serious. For example,
+there are optimisations that are only optimal for older browsers and jQuery
+doesn't use the browser's query selector. There are good reasons for jQuery to
+do these things, but they don't apply anywhere I'd want to use jQuery.
 
 ### What's been implemented?
 
 So far:
 
 - Selecting and create HTML elements
-- Basic tree traversal via `find`, `children`, `siblings`, `parent` and `parents`
-- Basic tree manipulation via `append`, `prepend`, `before`, and `after`
+- Basic tree traversal via `find`, `children`, `siblings`, `parent` and
+  `parents`
+- Basic tree manipulation via `append`, `prepend`, `before`, `after`, `wrap`,
+  `wrapInner`, and `wrapAll`
 - The Data API
 - The CSS API
+- Event handling
 
 ### What will be implemented?
 
@@ -59,7 +45,7 @@ Some things I won't consider:
 - Custom selectors
 - Effects and animation (do it in CSS or don't do it at all)
 - Per event type functions, e.g. `.click()`
-- Support for Browsers that are no longer recieving updates, e.g. Internet Explorer 8
+- Support for Browsers that are no longer receiving updates, e.g. Internet Explorer 8
 
 ### License?
 
