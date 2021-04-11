@@ -1,6 +1,6 @@
 {
   "name": "smallquery",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Like jQuery, but smaller.",
   "main": "src/smallquery.js",
   "scripts": {

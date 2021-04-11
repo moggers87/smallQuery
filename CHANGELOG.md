@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.4
+
+- Warp functions
+- Added `removeData`
+- Generally, plugs should return `this`
+- Events
+
 ## 0.0.3
 
 - Prepend/Append functions added
