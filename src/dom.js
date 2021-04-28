@@ -4,12 +4,41 @@ function prepareElements(arrayOrElement, clone) {
     var elements = smallQuery(arrayOrElement);
 
     if (clone) {
-        for (var j = 0; j < elements.length; j++) {
-            elements[j] = elements[j].cloneNode(true);
-        }
+        elements = elements.clone();
     }
 
     return elements;
+}
+
+function cloneDataAndEvents(source, destination) {
+    // TODO copy over event handlers
+    destination.data(source.data());
+}
+
+smallQuery.prototype.clone = function(dataAndEvents, dataAndEventsDeep) {
+    var clonedElements = $();
+
+    if (dataAndEvents === null) {
+        dataAndEvents = false;
+    }
+    if dataAndEventsDeep === null) {
+        dataAndEventsDeep = dataAndEvents;
+    }
+    this.each(function(idx) {
+        var clone = this.cloneNode(true);
+        Array.prototype.push.call(clonedElements, clone);
+
+        if (dataAndEvents) {
+            cloneDataAndEvents(this, clone);
+            if (dataAndEventsDeep) {
+                var children = this.querySelectorAll(":scope *")
+                var cloneChildren = clone.querySelectorAll(":scope *");
+                for (var i = 0; i < children.length; i++) {
+                    cloneDataAndEvents(children[i], cloneChildren[i]);
+                }
+            }
+        }
+    });
 }
 
 smallQuery.prototype.prepend = function(arrayOrElement) {
