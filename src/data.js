@@ -48,7 +48,7 @@ smallQuery.prototype.removeData = function() {
 
 // Data API helpers
 
-var privDataMarker = "smallQuery" + Math.random();
+var privDataMarker = "smallQueryData" + Math.random();
 
 function getData(el) {
     var data = {};
