@@ -33,6 +33,10 @@ describe("the data API", function() {
             $obj.data("self", $obj);
             expect($obj.data("self")).toBe($obj);
         });
+
+        it("should allow chaining", function() {
+            expect($obj.data("test", "toast")).toBe($obj);
+        });
     });
 
     describe("with multiple keys", function() {
@@ -57,6 +61,10 @@ describe("the data API", function() {
         it("should not return multiple values if multiple tags are selected with the same keys", function() {
             $obj = $("<div data-test='superego royal jelly'>Hello</div><div data-test='bluh!' data-value='test'>Bye</div>");
             expect($obj.data()).toEqual({test: "superego royal jelly", value: "test"});
+        });
+
+        it("should allow chaining", function() {
+            expect($obj.data({one: 1, two: 2})).toBe($obj);
         });
     });
 
@@ -89,6 +97,10 @@ describe("the data API", function() {
         it("should remove everything not defined in HTML if no keys are specified", function() {
             $obj.removeData();
             expect($obj.data()).toEqual({test: "superego royal jelly"});
+        });
+
+        it("should allow chaining", function() {
+            expect($obj.removeData()).toBe($obj);
         });
     });
 });
