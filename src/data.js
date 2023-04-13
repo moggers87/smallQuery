@@ -19,6 +19,8 @@ smallQuery.prototype.data = function(key, value) {
             for (var k in key) {
                 setData(this[0], k, key[k]);
             }
+
+            return this;
         }
         else {
             // fetch single key
@@ -27,6 +29,7 @@ smallQuery.prototype.data = function(key, value) {
     } else {
         // set key to value
         setData(this[0], key, value);
+        return this;
     }
 };
 
@@ -44,6 +47,8 @@ smallQuery.prototype.removeData = function() {
     for (var i = 0; i < keys.length; i++) {
         delData(this[0], keys[i]);
     }
+
+    return this;
 };
 
 // Data API helpers
