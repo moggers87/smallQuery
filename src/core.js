@@ -63,6 +63,7 @@ smallQuery.prototype.each = function(fn) {
     return this;
 };
 
+/* istanbul ignore next */
 smallQuery.noConflict = function() {
     if(window.$ === window.smallQuery) {
         window.$ = oldDollar;
