@@ -89,6 +89,11 @@ describe("the data API", function() {
             expect($obj.data()).toEqual({test: "superego royal jelly"});
         });
 
+        it("should do all this with multiple keys from an Array", function() {
+            $obj.removeData(["test", "rook"]);
+            expect($obj.data()).toEqual({test: "superego royal jelly"});
+        });
+
         it("should not error when the key does not exist", function() {
             $obj.removeData("badKey");
             expect($obj.data()).toEqual({test: "blackdresses", rook: "nomie"});

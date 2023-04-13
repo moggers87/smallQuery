@@ -45,6 +45,8 @@ smallQuery.prototype.removeData = function() {
     }
     if (arguments.length === 0) {
         keys = Object.keys(this[0][privDataMarker]);
+    } else if (arguments.length === 1 && Array.isArray(arguments[0])) {
+        keys = arguments[0];
     } else {
         keys = arguments;
     }
