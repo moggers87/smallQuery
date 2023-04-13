@@ -1,7 +1,12 @@
 import smallQuery from "./core.js";
 
-function prepareElements(arrayOrElement, clone) {
-    var elements = smallQuery(arrayOrElement);
+function prepareElements(thisArg, arrayOrElement, clone) {
+    var elements;
+    if (typeof arrayOrElement === "function") {
+        elements = smallQuery(arrayOrElement.call(thisArg));
+    } else {
+        elements = smallQuery(arrayOrElement);
+    }
 
     if (clone) {
         elements = elements.clone();
@@ -58,28 +63,28 @@ smallQuery.prototype.clone = function(dataAndEvents, dataAndEventsDeep) {
 smallQuery.prototype.prepend = function(arrayOrElement) {
     var lastIndex = this.length - 1;
     return this.each(function(index) {
-        window.Element.prototype.prepend.apply(this, prepareElements(arrayOrElement, index !== lastIndex));
+        window.Element.prototype.prepend.apply(this, prepareElements(this, arrayOrElement, index !== lastIndex));
     });
 };
 
 smallQuery.prototype.append = function(arrayOrElement) {
     var lastIndex = this.length - 1;
     return this.each(function(index) {
-        window.Element.prototype.append.apply(this, prepareElements(arrayOrElement, index !== lastIndex));
+        window.Element.prototype.append.apply(this, prepareElements(this, arrayOrElement, index !== lastIndex));
     });
 };
 
 smallQuery.prototype.before = function(arrayOrElement) {
     var lastIndex = this.length - 1;
     return this.each(function(index) {
-        window.Element.prototype.before.apply(this, prepareElements(arrayOrElement, index !== lastIndex));
+        window.Element.prototype.before.apply(this, prepareElements(this, arrayOrElement, index !== lastIndex));
     });
 };
 
 smallQuery.prototype.after = function(arrayOrElement) {
     var lastIndex = this.length - 1;
     return this.each(function(index) {
-        window.Element.prototype.after.apply(this, prepareElements(arrayOrElement, index !== lastIndex));
+        window.Element.prototype.after.apply(this, prepareElements(this, arrayOrElement, index !== lastIndex));
     });
 };
 
@@ -132,14 +137,13 @@ function wrap(target, wrapper) {
 smallQuery.prototype.wrap = function(element) {
     var lastIndex = this.length - 1;
     return this.each(function(index) {
-        var wrapper = prepareElements(element, index !== lastIndex);
+        var wrapper = prepareElements(this, element, index !== lastIndex);
         wrap(this, wrapper);
     });
 };
 
 smallQuery.prototype.wrapInner = function(element) {
     var lastIndex = this.length - 1;
-    var $element = smallQuery(element);
     return this.each(function(index) {
         var lastChild = (this.childNodes.length || 0) - 1;
         var children = {};
@@ -147,19 +151,26 @@ smallQuery.prototype.wrapInner = function(element) {
             children[i] = this.childNodes[i];
         }
         for (var j = 0; j <= lastChild; j++) {
-            var wrapper = prepareElements($element, index !== lastIndex || j !== lastChild);
+            var wrapper = prepareElements(this, element, index !== lastIndex || j !== lastChild);
             wrap(children[j], wrapper);
         }
     });
 };
 
 smallQuery.prototype.wrapAll = function(element) {
-    var wrapper = prepareElements(element, false);
+    var wrapper = prepareElements(this, element, false);
     wrap(this[0], wrapper);
     var newParent = this[0].parentNode;
     return this.each(function(index) {
         this.remove();
         newParent.appendChild(this);
+    });
+};
+
+smallQuery.prototype.replaceWith = function(contentOrFunction) {
+    var lastIndex = this.length - 1;
+    return this.each(function(index) {
+        window.Element.prototype.replaceWith.apply(this, prepareElements(this, contentOrFunction, index !== lastIndex));
     });
 };
 
