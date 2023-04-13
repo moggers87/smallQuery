@@ -4,13 +4,56 @@ function prepareElements(arrayOrElement, clone) {
     var elements = smallQuery(arrayOrElement);
 
     if (clone) {
-        for (var j = 0; j < elements.length; j++) {
-            elements[j] = elements[j].cloneNode(true);
-        }
+        elements = elements.clone();
     }
 
     return elements;
 }
+
+function cloneDataAndEvents(source, destination) {
+    var dataMarker = smallQuery.prototype.privDataMarker;
+    var eventMarker = smallQuery.prototype.privEventMarker;
+
+    if (source[dataMarker] !== undefined) {
+        destination[dataMarker] = {};
+        for (let key in source[dataMarker]) {
+            destination[dataMarker][key] = source[dataMarker][key];
+        }
+    }
+
+    if (source[eventMarker] !== undefined) {
+        destination[eventMarker] = {};
+        for (let key in source[eventMarker]) {
+            destination[eventMarker][key] = new Set();
+            for (let fn of source[eventMarker][key]) {
+                destination.addEventListener(key, fn);
+                destination[eventMarker][key].add(fn);
+            }
+        }
+    }
+}
+
+smallQuery.prototype.clone = function(dataAndEvents, dataAndEventsDeep) {
+    var clonedElements = smallQuery();
+
+    this.each(function(idx) {
+        var clone = this.cloneNode(true);
+        Array.prototype.push.call(clonedElements, clone);
+
+        if (dataAndEvents) {
+            cloneDataAndEvents(this, clone);
+            if (dataAndEventsDeep) {
+                var children = this.querySelectorAll(":scope *");
+                var cloneChildren = clone.querySelectorAll(":scope *");
+                for (var i = 0; i < children.length; i++) {
+                    cloneDataAndEvents(children[i], cloneChildren[i]);
+                }
+            }
+        }
+    });
+
+    return clonedElements;
+};
 
 smallQuery.prototype.prepend = function(arrayOrElement) {
     var lastIndex = this.length - 1;

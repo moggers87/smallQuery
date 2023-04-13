@@ -1,5 +1,9 @@
 import smallQuery from "./core.js";
 
+var privDataMarker = "smallQueryData" + Math.random();
+
+smallQuery.prototype.privDataMarker = privDataMarker;
+
 smallQuery.prototype.data = function(key, value) {
     if (key === undefined) {
         var data = {};
@@ -47,8 +51,6 @@ smallQuery.prototype.removeData = function() {
 };
 
 // Data API helpers
-
-var privDataMarker = "smallQueryData" + Math.random();
 
 function getData(el) {
     var data = {};

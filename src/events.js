@@ -1,5 +1,9 @@
 import smallQuery from "./core.js";
 
+var privEventMarker = "smallQueryEvent" + Math.random();
+
+smallQuery.prototype.privEventMarker = privEventMarker;
+
 smallQuery.prototype.on = function(eventType, fn) {
     return this.each(function() {
         addHandler(this, eventType, fn);
@@ -19,9 +23,6 @@ smallQuery.prototype.trigger = function(eventType) {
         this.dispatchEvent(event);
     });
 };
-
-
-var privEventMarker = "smallQueryEvents" + Math.random();
 
 function addHandler(el, type, fn) {
     el.addEventListener(type, fn);
