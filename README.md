@@ -4,7 +4,7 @@
 ## smallQuery
 
 A jQuery clone, except there's a bunch of stuff we don't implement. Also, where
-possible we don't reinvent the wheel for a 1% performance boost.
+possible we don't reinvent the wheel and just use what the browser provides.
 
 ### Where?
 
@@ -13,10 +13,14 @@ possible we don't reinvent the wheel for a 1% performance boost.
 
 ### Why though?
 
-This started as a learning project but has become semi-serious. For example,
-there are optimisations that are only optimal for older browsers and jQuery
-doesn't use the browser's query selector. There are good reasons for jQuery to
-do these things, but they don't apply anywhere I'd want to use jQuery.
+I needed a project that would help me learn JS beyond the basics I needed for work. Reimplementing jQuery works well because:
+
+- I use jQuery quite a lot so I'm familiar with its API, just not it internals.
+- There are a lot of things jQuery does that I'm not interested in, so that
+  gives me the opportunity to make something smaller and possibly faster. That
+  should keep me interested in the project long enough for me to learn something
+  useful from the project.
+- I can mimic jQuery's plugin architecture, allowing me to implement features piecemeal.
 
 ### What's been implemented?
 
@@ -30,6 +34,7 @@ So far:
 - The Data API
 - The CSS API
 - Event handling
+- Cloning!
 
 ### What will be implemented?
 
@@ -46,6 +51,7 @@ Some things I won't consider:
 - Effects and animation (do it in CSS or don't do it at all)
 - Per event type functions, e.g. `.click()`
 - Support for Browsers that are no longer receiving updates, e.g. Internet Explorer 8
+- AJAX. The Fetch API in your browser is far nicer.
 
 ### License?
 
