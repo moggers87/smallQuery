@@ -30,7 +30,7 @@ So far:
 - Basic tree traversal via `find`, `children`, `siblings`, `parent` and
   `parents`
 - Basic tree manipulation via `append`, `prepend`, `before`, `after`, `wrap`,
-  `wrapInner`, and `wrapAll`
+  `wrapInner`, `wrapAll`, and `replaceWith`
 - The Data API
 - The CSS API
 - Event handling
