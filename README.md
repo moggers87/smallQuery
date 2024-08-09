@@ -1,3 +1,7 @@
+# Migrated to [Codeberg](https://codeberg.org/moggers87/smallQuery)
+
+This repo is no longer used as we have migrated to Codeberg
+
 [![Build status](https://github.com/moggers87/exhibition/actions/workflows/tests.yml/badge.svg)](https://github.com/moggers87/exhibition/actions/workflows/tests.yml)
 [![Codecov](https://img.shields.io/codecov/c/github/moggers87/smallQuery.svg)](https://codecov.io/gh/moggers87/smallQuery)
 
